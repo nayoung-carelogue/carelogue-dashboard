@@ -49,4 +49,5 @@
 select{-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.25 6 6.25 11 1.25' fill='none' stroke='%2345555a' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 18px center;background-size:12px 8px;padding-right:48px!important}
 select{background-position:right 18px center!important;background-size:12px 8px!important}
 .assignment-review .assignment-date{display:flex;align-items:center;justify-content:space-between;gap:16px}.assignment-review .assignment-date>span{min-width:0}.assignment-review .assignment-date .button{flex:0 0 auto}
+.empty-filter-results{padding:34px 20px;text-align:center;color:var(--muted);font-weight:600}
 @media(max-width:900px){.assignment-review .assignment-date{align-items:flex-start;flex-direction:column}}

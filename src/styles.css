@@ -58,3 +58,109 @@ select{background-position:right 18px center!important;background-size:12px 8px!
 /* Give longer English interface labels enough room on wide screens. */
 @media(min-width:1181px){html[lang="en"] .sidebar{width:272px}html[lang="en"] .account{width:232px}html[lang="en"] .app main{margin-left:272px;width:calc(100% - 272px)}html[lang="en"] .nav-depth2 button{height:auto;min-height:38px;padding-top:8px;padding-bottom:8px;white-space:normal;line-height:1.35}html[lang="en"] .metric{padding-left:12px;padding-right:12px;gap:10px}html[lang="en"] .metric small{line-height:1.35}html[lang="en"] .topbar{gap:16px}html[lang="en"] .top-actions{gap:8px}}
 @media(max-width:1180px){.language-trigger>span:nth-child(2){display:none}.language-trigger{padding:0 10px}}
+
+/* Comment review refinements */
+.badge{min-height:30px;padding:6px 12px;line-height:1.25}
+.topbar{min-height:132px;height:auto;padding:18px 0}
+.top-actions{flex-direction:column;align-items:flex-end;gap:9px}
+.date-actions{display:flex;align-items:center;justify-content:flex-end;gap:10px}
+.date-actions>span{display:flex;align-items:center;gap:7px;margin-right:6px;font-weight:600}
+.language-flag{font-size:18px;line-height:1}
+.language-menu button>span:first-child{display:flex;align-items:center;gap:9px}
+.visit-donut{padding:18px}
+.donut-stat{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.donut-title{font-size:16px}
+.donut{position:relative;width:142px;height:142px}
+.donut:before{width:96px;height:96px}
+.donut>div{display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.2}
+.donut strong{font-size:25px}
+.visit-table .tr{grid-template-columns:110px 80px 80px minmax(230px,1.35fr) 120px 105px minmax(135px,1fr) 20px;gap:16px;min-height:68px}
+.visit-table .service-text{line-height:1.45;max-height:2.9em;overflow:hidden}
+.visit-table .badge{max-width:100%;white-space:normal;text-align:center}
+.service-lines p{grid-template-columns:minmax(142px,max-content) minmax(0,1fr);gap:38px}
+.service-lines .badge{white-space:normal;text-align:center}
+.issue{grid-template-columns:minmax(125px,max-content) minmax(0,1fr) 22px;gap:26px;padding:16px 18px}
+.issue>.badge,.problem>.badge{max-width:160px;white-space:normal;text-align:center}
+.indicator-issues .issue{grid-template-columns:minmax(145px,max-content) minmax(0,1fr) 28px;gap:30px}
+.indicator-issues .issue .badge{max-width:180px}
+.problem{grid-template-columns:minmax(145px,max-content) minmax(0,1fr);gap:28px}
+.handover>div:first-child h3,.handover>div:first-child p{margin-left:14px}
+.handover>div:first-child h3{margin-top:8px}
+.record-item{grid-template-columns:56px minmax(0,1fr);gap:10px 14px;align-items:center}
+.record-item>.badge{grid-column:2;justify-self:start;max-width:100%;white-space:normal;text-align:center}
+.record-item strong{min-width:0;overflow-wrap:anywhere}
+.weekly-chart{padding-left:64px;padding-bottom:38px}
+.weekly-chart .week-bars{height:260px;padding-top:12px}
+.week-bars>div{height:225px;width:58px}
+.week-bars b{font-size:13px;color:#405155;white-space:nowrap}
+.y-axis-label{left:2px}
+.monthly-highlights{padding:28px 26px 26px}
+.monthly-summary>div{padding:16px 12px}
+.service-change{grid-template-columns:minmax(135px,160px) minmax(230px,280px) 70px minmax(300px,420px);gap:28px}
+.service-change>.badge{max-width:150px;white-space:normal;text-align:center}
+.compare-bars{grid-template-columns:68px 1fr;gap:10px 16px}
+.month-groups{justify-content:center;gap:46px}
+.month-group>div{gap:10px}
+.meaningful-list>div{grid-template-columns:minmax(145px,max-content) minmax(0,1fr) auto;gap:32px}
+.meaningful-list .badge{max-width:170px;white-space:normal;text-align:center}
+.monthly-bottom .opinion-block>strong,.monthly-bottom .opinion-block>p{margin-left:14px}
+.ai-monthly-summary>h2,.ai-monthly-summary>p{margin-left:14px}
+.employee-card{grid-template-columns:125px minmax(0,1fr) 28px;gap:34px}
+.employee-card .tag-column{width:125px}
+.employee-card .badge{max-width:125px;white-space:normal;text-align:center}
+.attendance-events>div{grid-template-columns:125px 62px minmax(0,1fr);gap:16px}
+.attendance-events .badge{max-width:125px;white-space:normal;text-align:center}
+.recipient-item{gap:12px}
+.recipient-item>span:first-child,.recipient-item>strong:first-child{white-space:nowrap}
+.recipient-item>.badge{max-width:138px;white-space:normal;text-align:center;flex-shrink:0}
+.recipient-side .search{width:100%;max-width:100%;overflow:hidden}
+.recipient-side .search input{flex:1;width:100%;min-width:0}
+.ring{width:150px;height:150px;flex:0 0 150px;text-align:center}
+.ring:before{inset:14px}
+.ring span{display:block;width:82px;white-space:normal;line-height:1.15;text-align:center}
+.education-grid>*{min-width:0;overflow-wrap:anywhere}
+.education-grid .badge{max-width:100%;white-space:normal}
+@media(max-width:1180px){
+  .visit-table .tr{grid-template-columns:108px 70px 70px minmax(200px,1.25fr) 110px 95px 125px 20px;gap:13px}
+  .service-change{grid-template-columns:130px minmax(190px,260px) 65px;gap:22px}
+  .month-groups{gap:32px}
+  .issue{grid-template-columns:minmax(115px,max-content) minmax(0,1fr) 22px;gap:22px}
+}
+@media(max-width:900px){
+  .top-actions{align-items:flex-start}
+  .date-actions{flex-wrap:wrap;justify-content:flex-start}
+  .ring{width:112px;height:112px;flex-basis:112px}
+  .ring span{width:70px;font-size:13px}
+  .issue,.problem,.meaningful-list>div{grid-template-columns:1fr}
+  .issue>.icon{display:none}
+}
+
+/* Final width balancing after multilingual visual QA */
+.visit-table .tr{grid-template-columns:104px 70px 70px minmax(200px,1fr) 105px 80px 110px 16px;gap:12px;padding-left:12px;padding-right:12px}
+.education-grid{grid-template-columns:minmax(210px,1.3fr) 112px 92px 84px minmax(135px,1fr) 112px 20px;gap:10px}
+.monthly-trend{grid-template-columns:minmax(0,1fr) 280px;gap:24px}
+.month-chart{padding-left:58px}
+.trend-y-axis{left:20px;transform:translate(-50%,-50%) rotate(-90deg)}
+.month-groups{gap:16px}
+.month-group{flex:0 0 95px}
+@media(max-width:1180px){
+  .visit-table .tr{grid-template-columns:100px 68px 68px minmax(190px,1fr) 100px 78px 105px 16px;gap:10px}
+  .education-grid{grid-template-columns:minmax(190px,1.2fr) 105px 86px 80px minmax(125px,1fr) 105px 18px;gap:8px}
+  .monthly-trend{grid-template-columns:1fr}
+  .month-groups{gap:22px}
+}
+.recipient-layout{grid-template-columns:300px minmax(0,1fr)}
+@media(max-width:900px){.recipient-layout{grid-template-columns:1fr}}
+
+/* Keep the expanded profile in its own footer area below the menu. */
+.sidebar{display:flex;flex-direction:column;overflow:hidden}
+.sidebar nav{flex:1;min-height:0;overflow-y:auto;padding-bottom:16px;margin-right:-8px;padding-right:8px}
+.account{position:static;left:auto;bottom:auto;width:100%;min-height:92px;flex:0 0 auto;padding:16px 4px 6px 0;border-top:1px solid var(--border);background:var(--nav);align-items:flex-start}
+.account .avatar{flex:0 0 32px;margin-top:2px}
+.account>div:last-child{min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:5px}
+.account strong{white-space:normal;line-height:1.35;overflow-wrap:anywhere}
+.account button{line-height:1.3}
+@media(max-width:900px){
+  .sidebar nav{margin-right:0;padding-right:0}
+  .account{width:100%;min-height:68px;padding:10px 0;align-items:center;justify-content:center}
+}

@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+import { useI18n } from './i18n/index.js';
 
 const NAV = [
   { key:'operations', label:'오늘의 운영', items:[['/operations/visits','방문 현황'],['/operations/staff','직원 활동']] },
@@ -47,6 +48,24 @@ const Icon=({name})=><span className="icon" aria-hidden="true">{{calendar:'▣',
 
 function Badge({tone='neutral',children}){ return <span className={`badge ${tone}`}><span className="badge-dot"/>{children}</span> }
 function Button({children,tone='default',onClick,type='button'}){ return <button type={type} className={`button ${tone}`} onClick={onClick}>{children}</button> }
+function LanguageSelector(){
+  const {language,setLanguage,languages}=useI18n();
+  const [open,setOpen]=useState(false);
+  const pickerRef=React.useRef(null);
+  const current=languages.find(option=>option.value===language)||languages[0];
+  React.useEffect(()=>{
+    if(!open)return undefined;
+    const close=event=>{if(!pickerRef.current?.contains(event.target))setOpen(false)};
+    const escape=event=>{if(event.key==='Escape')setOpen(false)};
+    document.addEventListener('pointerdown',close);
+    document.addEventListener('keydown',escape);
+    return()=>{document.removeEventListener('pointerdown',close);document.removeEventListener('keydown',escape)};
+  },[open]);
+  return <div className="language-picker" ref={pickerRef} data-i18n-ignore>
+    <button className="language-trigger" type="button" aria-label="Language" aria-haspopup="menu" aria-expanded={open} onClick={()=>setOpen(value=>!value)}><span aria-hidden="true">◎</span><span>Language</span><b>{current.shortLabel}</b><span className="language-chevron" aria-hidden="true">⌄</span></button>
+    {open&&<div className="language-menu" role="menu">{languages.map(option=><button type="button" role="menuitemradio" aria-checked={option.value===language} className={option.value===language?'active':''} key={option.value} onClick={()=>{setLanguage(option.value);setOpen(false)}}><span>{option.label}</span><small>{option.shortLabel}</small></button>)}</div>}
+  </div>
+}
 function Card({children,className='',onClick}){ return <section className={cls('card',onClick&&'clickable',className)} onClick={onClick}>{children}</section> }
 function SectionTitle({title,desc,action}){ return <div className="section-title"><div><h2>{title}</h2>{desc&&<p>{desc}</p>}</div>{action&&<div className="section-actions">{action}</div>}</div> }
 function Metric({label,value,desc,tone='teal',icon}){ return <div className="metric"><span className={`metric-icon ${tone}`}><Icon name={icon||'doc'}/></span><div><small>{label}</small><strong>{value}</strong><span>{desc}</span></div></div> }
@@ -63,7 +82,7 @@ function Sidebar({route,go}){
   return <aside className="sidebar"><div className="brand"><div className="logo">♥</div><strong>케어로그</strong></div><p className="org">방문요양 · ○○재가센터</p><nav>{NAV.map(group=>{const active=route.startsWith('/'+group.key);return <div className="nav-group" key={group.key}><div className={cls('nav-depth1',active&&'active')}><span className="nav-dot"/>{group.label}<span>⌃</span></div><div className="nav-depth2">{group.items.map(([path,label,nested],i)=>{const selected=route===path && (label!=='돌봄 기록'||route==='/care/records/daily');return <button className={cls(nested&&'nested',selected&&'selected')} key={label+i} onClick={()=>go(path)}>{label}</button>})}</div></div>})}</nav><div className="account"><div className="avatar">이</div><div><strong>이○○ 관리자</strong><button>로그아웃</button></div></div></aside>
 }
 
-function Layout({route,go,children}){ const info=pageInfo[route]||['케어로그','']; const feedback=route==='/improvement/feedback'; const staffOverview=route==='/staff/overview'; const monthly=route==='/care/records/monthly'; return <div className="app"><Sidebar route={route} go={go}/><main><header className="topbar"><div><h1>{info[0]}</h1><p>{info[1]}</p></div><div className="top-actions">{staffOverview?<div className="staff-top-actions"><span>기준일 2026.09.28</span></div>:monthly?<div className="updated-at"><strong>기준일 2026.09.30</strong><span>업데이트 10:35</span></div>:<><span>{!feedback&&<Icon name="calendar"/>}{feedback?'2026년 9월 22일':'기준일 2026.09.22'}</span>{!feedback&&<><Button>오늘</Button><Button>‹</Button><Button>›</Button></>}</>}</div></header><div className="top-divider"/>{children}</main></div> }
+function Layout({route,go,children}){ const info=pageInfo[route]||['케어로그','']; const feedback=route==='/improvement/feedback'; const staffOverview=route==='/staff/overview'; const monthly=route==='/care/records/monthly'; return <div className="app"><Sidebar route={route} go={go}/><main><header className="topbar"><div><h1>{info[0]}</h1><p>{info[1]}</p></div><div className="top-actions"><LanguageSelector/>{staffOverview?<div className="staff-top-actions"><span>기준일 2026.09.28</span></div>:monthly?<div className="updated-at"><strong>기준일 2026.09.30</strong><span>업데이트 10:35</span></div>:<><span>{!feedback&&<Icon name="calendar"/>}{feedback?'2026년 9월 22일':'기준일 2026.09.22'}</span>{!feedback&&<><Button>오늘</Button><Button>‹</Button><Button>›</Button></>}</>}</div></header><div className="top-divider"/>{children}</main></div> }
 
 const visits=[
   {time:'08:00–09:00',recipient:'이○○',staff:'박○○',services:'신체활동 2 · 가사·일상 1',status:'완료',tone:'success',record:'작성 완료',note:'—'},

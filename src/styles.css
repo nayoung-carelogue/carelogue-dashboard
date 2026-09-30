@@ -151,6 +151,12 @@ select{background-position:right 18px center!important;background-size:12px 8px!
 .recipient-layout{grid-template-columns:300px minmax(0,1fr)}
 @media(max-width:900px){.recipient-layout{grid-template-columns:1fr}}
 
+.donut-wrap{position:relative;width:142px;height:142px;display:grid;place-items:center}
+.donut-svg{position:absolute;inset:0}
+.donut-inner{position:relative;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.2}
+.donut-inner strong{font-size:25px;line-height:1.3;display:block;color:#15252a}
+.donut-inner span{display:block;color:var(--muted)}
+
 /* Keep the expanded profile in its own footer area below the menu. */
 .sidebar{display:flex;flex-direction:column;overflow:hidden}
 .sidebar nav{flex:1;min-height:0;overflow-y:auto;padding-bottom:16px;margin-right:-8px;padding-right:8px}

@@ -525,3 +525,17 @@ html[lang="en"] .support-row{grid-template-columns:136px minmax(0,1fr) 124px 160
 .record-ai{padding:14px 16px;border:1px solid #ddd4f5;border-radius:10px;background:#faf8ff}
 .record-ai .ai-state{color:var(--purple);font-weight:600;font-size:14px}
 .record-ai p{margin:0;color:#15252a}
+
+/* Modal: shared parts for issue / AI / decision / people / detail bodies. */
+.modal footer .button:disabled{opacity:.5;cursor:not-allowed}
+.summary-line{display:flex;flex-wrap:wrap;gap:4px 0;padding-bottom:14px;border-bottom:1px solid var(--border);font-weight:600;color:#15252a}
+.summary-line>span:not(:last-child)::after{content:"·";margin:0 8px;color:var(--muted);font-weight:400}
+.record-todo{padding:14px 16px;border-radius:10px;background:var(--teal-light)}
+.record-todo ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px;color:#15252a}
+.modal-checks{display:flex;flex-direction:column}
+.modal-checks label{min-height:44px;display:flex;align-items:center;gap:10px;border-bottom:1px solid #edf0f0;cursor:pointer}
+.modal-checks input{accent-color:var(--teal);width:18px;height:18px}
+.visit-dots-row{display:flex;flex-wrap:wrap;gap:12px}
+.impact-rows>div{grid-template-columns:56px minmax(0,1fr) minmax(0,1fr) max-content;align-items:center}
+.impact-rows .badge{white-space:nowrap}
+.modal .judgment-options{margin-top:2px}

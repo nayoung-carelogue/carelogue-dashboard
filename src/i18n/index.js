@@ -452,3 +452,7 @@ if (isBrowser) {
     emitLanguageChange(nextLanguage);
   });
 }
+
+// Dev only: this module keeps global language state and DOM observers, so a hot
+// swap would leave two copies running. Reload the page when it or a dictionary changes.
+if (import.meta.hot) import.meta.hot.accept(() => window.location.reload());

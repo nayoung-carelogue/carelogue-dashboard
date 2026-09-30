@@ -691,3 +691,31 @@ html[lang="en"] .support-row{grid-template-columns:136px minmax(0,1fr) 124px 160
   .service-change-list>.service-change,.meaningful-list>div{grid-template-columns:1fr}
   .service-change-list>.service-change>.delta-badge{grid-column:auto;grid-row:auto;justify-self:start}
 }
+
+/* Modal rows: date/name · tag · text · state, one row per line. */
+.status-rows{display:grid;grid-template-columns:max-content max-content minmax(0,1fr) max-content;column-gap:14px}
+.status-rows>div{grid-column:1/-1;display:grid;grid-template-columns:subgrid;align-items:center;min-height:44px;padding:8px 0;border-bottom:1px solid #edf0f0}
+.status-rows>div>span{min-width:0}
+.status-rows .badge{white-space:nowrap;justify-self:start}
+.status-rows .over,.status-rows .state.warning{color:var(--danger);font-weight:600}
+.status-rows .state.warning{color:var(--warning)}
+.status-rows .state.done{color:var(--muted)}
+.status-rows>div>span:first-child{font-variant-numeric:tabular-nums;white-space:nowrap}
+.registered-note{display:flex;align-items:center;gap:8px;margin:0;padding:12px 14px;border-radius:10px;background:var(--green-bg);color:var(--green);font-weight:600;width:100%}
+.formula{font-variant-numeric:tabular-nums}
+
+/* Report preview: document layout. */
+.report-doc{display:flex;flex-direction:column;gap:14px}
+.report-doc header{padding-bottom:12px;border-bottom:1px solid var(--border)}
+.report-doc h3{font-size:18px;margin-bottom:8px}
+.report-doc dl{margin:0;display:flex;flex-wrap:wrap;gap:6px 20px}
+.report-doc dl>div{display:flex;gap:6px;align-items:center}
+.report-doc dt{color:var(--muted)}
+.report-doc dd{margin:0;color:#15252a}
+.report-doc section h4{margin:0 0 4px;font-size:16px}
+.report-doc section p{margin:0;color:#15252a;line-height:1.7}
+.report-doc b{font-weight:700}
+
+/* Sidebar: 14px minimum; hierarchy by colour and weight. */
+.org-box small,.account .account-text small{font-size:14px;font-weight:400;color:var(--muted)}
+.report-doc>div{display:flex;flex-direction:column;gap:14px}

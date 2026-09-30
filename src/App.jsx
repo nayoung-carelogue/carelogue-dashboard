@@ -62,8 +62,8 @@ function LanguageSelector(){
     return()=>{document.removeEventListener('pointerdown',close);document.removeEventListener('keydown',escape)};
   },[open]);
   return <div className="language-picker" ref={pickerRef} data-i18n-ignore>
-    <button className="language-trigger" type="button" aria-label="Language" aria-haspopup="menu" aria-expanded={open} onClick={()=>setOpen(value=>!value)}><span className="language-flag" aria-hidden="true">{current.flag}</span><span>Language</span><b>{current.shortLabel}</b><span className="language-chevron" aria-hidden="true">⌄</span></button>
-    {open&&<div className="language-menu" role="menu">{languages.map(option=><button type="button" role="menuitemradio" aria-checked={option.value===language} className={option.value===language?'active':''} key={option.value} onClick={()=>{setLanguage(option.value);setOpen(false)}}><span><span className="language-flag" aria-hidden="true">{option.flag}</span>{option.label}</span><small>{option.shortLabel}</small></button>)}</div>}
+    <button className="language-trigger" type="button" aria-label="Language" aria-haspopup="menu" aria-expanded={open} onClick={()=>setOpen(value=>!value)}><span>Language</span><b>{current.shortLabel}</b><span className="language-chevron" aria-hidden="true">⌄</span></button>
+    {open&&<div className="language-menu" role="menu">{languages.map(option=><button type="button" role="menuitemradio" aria-checked={option.value===language} className={option.value===language?'active':''} key={option.value} onClick={()=>{setLanguage(option.value);setOpen(false)}}><span>{option.label}</span><small>{option.shortLabel}</small></button>)}</div>}
   </div>
 }
 function Card({children,className='',onClick}){ return <section className={cls('card',onClick&&'clickable',className)} onClick={onClick}>{children}</section> }

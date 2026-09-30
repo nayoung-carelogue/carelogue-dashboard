@@ -13,9 +13,9 @@ export const LANGUAGE_STORAGE_KEY = 'carelogue.language';
 export const LANGUAGE_CHANGE_EVENT = 'carelogue:languagechange';
 
 export const LANGUAGE_OPTIONS = Object.freeze([
-  { value: 'ko', label: '한국어', shortLabel: 'KO', flag: '🇰🇷' },
-  { value: 'ja', label: '日本語', shortLabel: 'JA', flag: '🇯🇵' },
-  { value: 'en', label: 'English', shortLabel: 'EN', flag: '🇺🇸' },
+  { value: 'ko', label: '한국어', shortLabel: 'KO' },
+  { value: 'ja', label: '日本語', shortLabel: 'JA' },
+  { value: 'en', label: 'English', shortLabel: 'EN' },
 ]);
 
 const TRANSLATABLE_ATTRIBUTES = Object.freeze([

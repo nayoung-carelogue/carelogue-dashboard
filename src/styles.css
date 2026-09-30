@@ -208,7 +208,6 @@ html[lang="en"] body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',
 .opinion-detail>.card:first-child .teal-text{display:block;margin-top:14px}
 
 /* Tag lists with equal-width tags so content starts on the same line. */
-.fixed-tag-list .issue{grid-template-columns:160px minmax(0,1fr) 22px}
 .match-target{grid-template-columns:140px minmax(0,1fr) 22px}
 .fixed-tag-list .issue>.badge,.match-target>.badge{width:100%;max-width:none;white-space:nowrap}
 
@@ -576,3 +575,39 @@ html[lang="en"] .support-row{grid-template-columns:136px minmax(0,1fr) 124px 160
 /* 4) 수급자·보호자 의견: 좁은 화면에서 수급자 이름은 말줄임, 요약 배지는 줄바꿈 */
 .recipient-item>span:first-child,.recipient-item>strong:first-child{min-width:0;overflow:hidden;text-overflow:ellipsis}
 .feedback-recipient-info>div{flex-wrap:wrap;gap:8px 12px}
+
+/* Issue lists: tag column sized to the longest tag, titles share one start line. */
+.issue-list{display:grid;grid-template-columns:max-content minmax(0,1fr) 22px;column-gap:22px;row-gap:10px}
+.issue-list>.issue{grid-column:1/-1;grid-template-columns:subgrid;column-gap:22px}
+.issue-list>.issue+.issue{margin-top:0}
+.issue-list>.issue>.badge{justify-self:start;max-width:200px;white-space:normal;text-align:center}
+@media(max-width:900px){.issue-list{grid-template-columns:1fr}.issue-list>.issue{grid-template-columns:1fr}}
+
+/* Badges: keep the status dot round even when the label is long. */
+.badge-dot{flex-shrink:0}
+
+/* Visit schedule: one grid for the whole table, rows share columns via subgrid. */
+.visit-table{display:grid;grid-template-columns:max-content max-content max-content minmax(160px,1fr) max-content minmax(90px,max-content) minmax(96px,max-content) 16px;column-gap:14px}
+.visit-table>.tr{grid-column:1/-1;display:grid;grid-template-columns:subgrid;column-gap:14px;min-width:0}
+.visit-table>.expanded{grid-column:1/-1}
+.visit-table .tr>*{min-width:0}
+.visit-table .tr.th>span{white-space:nowrap}
+.visit-table .tr:not(.th)>:nth-child(1){white-space:nowrap;font-variant-numeric:tabular-nums}
+.visit-status{display:flex;justify-content:flex-start}
+.visit-table .visit-status .badge{white-space:nowrap;max-width:none;text-align:left}
+.record-state{display:inline-flex;align-items:center;gap:6px}
+.record-state i{font-style:normal;font-weight:700;width:18px;display:inline-grid;place-items:center;flex-shrink:0}
+.record-state.success i{color:var(--green)}
+.record-state.warning i{color:var(--warning)}
+.record-state.blue i{color:var(--blue)}
+.record-state.none{color:var(--muted)}
+.note-chip{display:inline-block;padding:2px 10px;border-radius:999px;font-size:14px;font-weight:600;line-height:1.35}
+.note-chip.warning{background:var(--warning-bg);color:var(--warning)}
+.note-chip.danger{background:var(--danger-bg);color:var(--danger)}
+@media(max-width:1180px){.visit-table{grid-template-columns:max-content max-content max-content minmax(96px,1fr) max-content minmax(64px,max-content) minmax(76px,max-content) 12px;column-gap:8px}.visit-table>.tr{column-gap:8px;padding-left:8px;padding-right:8px}}
+@media(max-width:900px){.visit-table{display:block}.visit-table>.tr{grid-template-columns:104px 80px 80px minmax(200px,1fr) 130px 110px 120px 16px}}
+
+/* Visit detail: service tags share one column. */
+.service-lines{grid-template-columns:max-content minmax(0,1fr);column-gap:38px}
+.service-lines p{grid-column:1/-1;grid-template-columns:subgrid;margin:0}
+.service-lines p .badge{justify-self:start;max-width:220px}

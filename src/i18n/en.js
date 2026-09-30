@@ -564,7 +564,7 @@ export const en = {
   '담당 6명 · 주 25회 방문 · 최근 3개월 194시간 · 연속근무 6일': '6 clients · 25 visits/week · 194 hours over 3 months · 6 consecutive workdays',
   '담당 5명 · 주 20회 방문 · 최근 3개월 172시간 · 근태 이상 1건': '5 clients · 20 visits/week · 172 hours over 3 months · 1 attendance issue',
   '담당 4명 · 주 18회 방문 · 최근 3개월 168시간 · 이상 0건': '4 clients · 18 visits/week · 168 hours over 3 months · 0 issues',
-  '총 5건': 'Total 5 items',
+  '총 5건': '5 visits',
   '총': 'Total',
   '건': ' items',
   '명': ' people',
@@ -1551,6 +1551,7 @@ const enDashboardAdditions = {
   '결정 이유': 'Reason for the decision',
   '완료 전 확인': 'Before completing',
   '사유': 'Reason',
+  '확인할 내용': 'Items to check',
 };
 
 Object.assign(en, enOverrides, enStaffQualityOverrides, enLocaleFixes, enDashboardAdditions);

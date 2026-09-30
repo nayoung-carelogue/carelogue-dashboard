@@ -561,3 +561,5 @@ html[lang="en"] .support-row{grid-template-columns:136px minmax(0,1fr) 124px 160
 .inline-progress{display:flex;align-items:center;gap:10px}
 .inline-progress .progress{flex:1;max-width:220px}
 .modal .candidate{grid-template-columns:minmax(0,1fr) auto auto}
+.preview-lines{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px;color:#15252a}
+.modal .apply-period>div{justify-content:flex-end}

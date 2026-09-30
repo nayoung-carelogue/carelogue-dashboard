@@ -545,3 +545,13 @@ html[lang="en"] .support-row{grid-template-columns:136px minmax(0,1fr) 124px 160
 .modal-textarea:focus{outline:2px solid var(--teal);outline-offset:1px}
 .edited-summary{white-space:pre-line;color:#15252a;margin-left:14px}
 .modal .steps{overflow-x:auto}
+.modal-compare{padding:12px 0!important;justify-content:space-around;display:flex;align-items:center}
+.modal-compare>div{text-align:center}
+.modal-compare small,.modal-compare strong,.modal-compare span{display:block}
+.modal-compare strong{font-size:26px;margin-top:4px}
+.modal-compare strong.improved{color:var(--green)}
+.modal-compare span{color:var(--muted)}
+.plan-compare{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:12px;align-items:center}
+.plan-compare>div{border:1px solid var(--border);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:4px}
+.plan-compare>div:last-child{border-color:var(--teal);background:var(--teal-light)}
+.plan-compare small{color:var(--muted);font-weight:600}

@@ -632,3 +632,62 @@ html[lang="en"] .support-row{grid-template-columns:136px minmax(0,1fr) 124px 160
 
 /* "In progress" status badge: keep the dot round (the tone shares the Progress bar class name). */
 .badge.progress>.badge-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:currentColor}
+
+/* Chart palette: category colours for charts only (status colours stay for status). */
+:root{--chart-1:#0F7F83;--chart-2:#6FB7E9;--chart-3:#F0B85A;--chart-4:#C5CED0;--chart-prev:#AEBABC}
+.bar-chart .bar-track i{background:var(--chart-1)}
+.weekly-chart .week-bars span{background:var(--chart-1)}
+
+/* Service category tags: light grey pill, dark grey text, palette dot. */
+.badge.cat1,.badge.cat2,.badge.cat3,.badge.cat4{background:#f0f3f4;color:#3d4b50}
+.badge.cat1>.badge-dot{background:var(--chart-1)}
+.badge.cat2>.badge-dot{background:var(--chart-2)}
+.badge.cat3>.badge-dot{background:var(--chart-3)}
+.badge.cat4>.badge-dot{background:var(--chart-4)}
+
+/* Service mix: stacked bar with 2px gaps, legend = swatch + name + value. */
+.service-composition{height:28px;border-radius:8px;gap:2px;background:#fff}
+.service-composition span{background:var(--chart-1)}
+.service-composition span.c2{background:var(--chart-2)}
+.service-composition span.c3{background:var(--chart-3)}
+.service-composition span.c4{background:var(--chart-4)}
+.composition-legend{gap:10px 24px;padding-left:0;color:#15252a}
+.legend-item{display:inline-flex;align-items:center;white-space:nowrap}
+.legend-item .swatch{width:10px;height:10px;border-radius:2px;margin-right:8px;flex-shrink:0;background:var(--chart-1)}
+.legend-item .swatch.c2{background:var(--chart-2)}
+.legend-item .swatch.c3{background:var(--chart-3)}
+.legend-item .swatch.c4{background:var(--chart-4)}
+.legend-name{color:#3d4b50}
+.legend-value{margin-left:6px;font-weight:500;color:#15252a;font-variant-numeric:tabular-nums}
+
+/* Service change by area: one tag column shared by all rows, bars take the rest. */
+.service-change-list{display:grid;grid-template-columns:max-content minmax(0,max-content) minmax(0,1fr) max-content;column-gap:24px}
+.service-change-list>.service-change{grid-column:1/-1;grid-template-columns:subgrid;column-gap:24px;justify-content:stretch}
+.service-change-list>.service-change>.badge{justify-self:start;max-width:200px;white-space:normal;text-align:center}
+.service-change .compare-bars{grid-column:auto;width:100%;max-width:none;grid-template-columns:max-content minmax(0,1fr) 44px;gap:8px 12px}
+.service-change .compare-bars .progress{height:10px}
+.service-change .compare-bars .progress>span{background:var(--chart-1)}
+.service-change .compare-bars .progress:nth-of-type(2)>span{background:var(--chart-prev)}
+.service-change .compare-bars>span{color:var(--muted)}
+.service-change .compare-bars>b{font-size:14px;font-weight:500;text-align:right;font-variant-numeric:tabular-nums;color:#3d4b50}
+.delta-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:999px;font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
+.delta-badge i{font-style:normal;font-size:12px}
+.delta-badge.up{background:var(--green-bg);color:var(--green)}
+.delta-badge.down{background:var(--danger-bg);color:var(--danger)}
+
+/* Meaningful changes: shared tag column. */
+.meaningful-list{display:grid;grid-template-columns:max-content minmax(0,1fr) max-content;column-gap:28px;row-gap:14px}
+.meaningful-list>div{grid-column:1/-1;grid-template-columns:subgrid;column-gap:28px}
+.meaningful-list>div>.badge{justify-self:start;max-width:200px;white-space:normal;text-align:center}
+
+@media(max-width:1180px){
+  .service-change-list{grid-template-columns:max-content minmax(0,1fr) max-content}
+  .service-change-list>.service-change{grid-template-columns:subgrid}
+  .service-change-list>.service-change>.compare-bars{grid-column:1/-1;grid-row:2}
+  .service-change-list>.service-change>.delta-badge{grid-column:3;grid-row:1}
+}
+@media(max-width:900px){
+  .service-change-list,.meaningful-list{grid-template-columns:1fr}
+  .service-change-list>.service-change,.meaningful-list>div{grid-template-columns:1fr}
+  .service-change-list>.service-change>.delta-badge{grid-column:auto;grid-row:auto;justify-self:start}
+}

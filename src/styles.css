@@ -611,3 +611,24 @@ html[lang="en"] .support-row{grid-template-columns:136px minmax(0,1fr) 124px 160
 .service-lines{grid-template-columns:max-content minmax(0,1fr);column-gap:38px}
 .service-lines p{grid-column:1/-1;grid-template-columns:subgrid;margin:0}
 .service-lines p .badge{justify-self:start;max-width:220px}
+
+/* Sidebar brand: service type + agency name in a small box. */
+.org-box{margin:10px 0 22px;padding:8px 10px;background:#fff;border:1px solid var(--border);border-radius:8px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.org-box small{font-size:12px;color:var(--muted);line-height:1.3}
+.org-box strong{font-size:14px;font-weight:500;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#15252a}
+
+/* Sidebar account: name + role, icon logout button. */
+.account{align-items:center;background:var(--nav);padding:14px 0 14px 0;min-height:0}
+.account .avatar{background:var(--teal-light);color:var(--teal);font-weight:700;margin-top:0}
+.account .account-text{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px}
+.account .account-text strong{font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.35}
+.account .account-text small{font-size:12px;color:var(--muted);line-height:1.3}
+.logout-btn{flex:0 0 32px;width:32px;height:32px;display:grid;place-items:center;padding:0;background:#fff;border:1px solid var(--border);border-radius:8px;color:var(--muted);cursor:pointer}
+.logout-btn:hover{color:var(--danger);border-color:var(--danger)}
+.sidebar{background:var(--nav);border-radius:0}
+.sidebar nav{scrollbar-color:#cfd8d9 transparent}
+.sidebar ::-webkit-scrollbar-corner,.sidebar::-webkit-scrollbar-corner{background:var(--nav)}
+@media(max-width:900px){.org-box,.account .account-text,.logout-btn{display:none}}
+
+/* "In progress" status badge: keep the dot round (the tone shares the Progress bar class name). */
+.badge.progress>.badge-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:currentColor}

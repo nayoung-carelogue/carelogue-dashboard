@@ -563,3 +563,16 @@ html[lang="en"] .support-row{grid-template-columns:136px minmax(0,1fr) 124px 160
 .modal .candidate{grid-template-columns:minmax(0,1fr) auto auto}
 .preview-lines{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px;color:#15252a}
 .modal .apply-period>div{justify-content:flex-end}
+
+/* i18n: 영어·일본어처럼 문구가 길어져도 태그가 배경 밖으로 넘치지 않게 */
+/* 1) 돌봄 기록 팝업 '계획 대비 수행': 분류 열을 가장 긴 태그에 맞추고(subgrid), 모든 행의 시작선은 유지 */
+.record-plan{display:grid;grid-template-columns:max-content minmax(0,1fr) 44px;column-gap:14px}
+.record-plan>div{grid-column:1/-1;grid-template-columns:subgrid}
+.record-plan .badge{width:100%;max-width:200px;white-space:normal;text-align:center;line-height:1.25}
+/* 2) 직원 현황 표: 이상 칩은 칸보다 길면 줄바꿈 */
+.staff-chip{white-space:normal;max-width:100%}
+/* 3) 직원 활동 표: 마지막 좁은 열의 배지는 줄바꿈 허용 */
+.staff-grid .badge{white-space:normal;text-align:center;line-height:1.25}
+/* 4) 수급자·보호자 의견: 좁은 화면에서 수급자 이름은 말줄임, 요약 배지는 줄바꿈 */
+.recipient-item>span:first-child,.recipient-item>strong:first-child{min-width:0;overflow:hidden;text-overflow:ellipsis}
+.feedback-recipient-info>div{flex-wrap:wrap;gap:8px 12px}
